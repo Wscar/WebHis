@@ -1,0 +1,15 @@
+﻿<SmartSqlMapConfig xmlns="http://SmartSql.net/schemas/SmartSqlMapConfig.xsd">
+  <Settings ParameterPrefix="@"/>
+  <Database>
+    <DbProvider Name="MySql"/>
+    <Write Name="WriteDB" ConnectionString="${ConnectionString}"/>
+    <Read Name="ReadDB" ConnectionString="${ConnectionString}"></Read>
+  </Database>
+  <TypeHandlers>
+    <TypeHandler Name="Json" Type="SmartSql.TypeHandler.JsonTypeHandler,SmartSql.TypeHandler"/>
+  </TypeHandlers>
+  <SmartSqlMaps>
+    <SmartSqlMap Path="YMB.IdentityServer.Maps.Client.xml" Type="Embedded" ></SmartSqlMap>
+    <SmartSqlMap Path="Maps" Type="Directory" ></SmartSqlMap>
+  </SmartSqlMaps>
+</SmartSqlMapConfig>
