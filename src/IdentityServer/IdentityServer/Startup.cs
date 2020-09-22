@@ -32,8 +32,7 @@ namespace YMB.IdentityServer
             services.AddControllersWithViews();
             IDictionary<string,string> connect = new Dictionary<string, string>();
             connect.Add("ConnectionString", Configuration.GetConnectionString("Mysql"));
-            services.AddSmartSql(builder=> builder.UseProperties(connect));
-            
+            services.AddSmartSql(builder=> builder.UseProperties(connect));        
             string migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
             services.AddIdentityServer(o =>
             {

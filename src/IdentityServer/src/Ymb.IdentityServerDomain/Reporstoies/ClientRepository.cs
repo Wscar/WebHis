@@ -8,14 +8,12 @@ using Ymb.Infrastructure;
 namespace Ymb.IdentityServerDomain
 {
     public class ClientRepository : IClientRepository
-    {
-        public readonly IRepository _repository;
-
+    {     
         public readonly ISqlMapper _sqlMapper;
         public ILogger<ClientRepository> _logger;
-        public ClientRepository(IRepository repository, ISqlMapper sqlMapper, ILogger<ClientRepository> logger)
+        public ClientRepository(ISqlMapper sqlMapper, ILogger<ClientRepository> logger)
         {
-            this._repository = repository;
+           
             this._sqlMapper = sqlMapper;
             this._logger = logger;
         }

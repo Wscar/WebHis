@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Ymb.IdentityServerDomain;
 using Ymb.Infrastructure;
-using SmartSql;
 using SmartSql.AOP;
 
 namespace Ymb.IdentityServerApplication
@@ -133,9 +132,111 @@ namespace Ymb.IdentityServerApplication
             }
         }
 
-        public Task AddClientAsync(Client client)
+        public async Task AddClientAsync(Client client)
         {
-            throw new NotImplementedException();
+            var requestContennt = new RequestContext
+            {
+                Scope = "Client",
+                SqlId = "Insert_ClientClaim",
+                Request = client
+            };
+            await this._clientRepository.ExcuteNoQueryAsync(requestContennt);
+            if (client.ClientSecrets.IsNullOrEmpty())
+            {
+                requestContennt.SqlId = "Insert_ClientSecret";
+                foreach (var item in client.ClientSecrets)
+                {
+                    requestContennt.Request = item;
+                    await this._clientRepository.ExcuteNoQueryAsync(requestContennt);
+                }
+            }
+            else
+            {
+                throw new ArgumentNullException("ClientSecrets", "ClientSecrets can not null or empty");
+            }
+
+            if (client.AllowedGrantTypes.IsNullOrEmpty())
+            {
+                requestContennt.SqlId = "Insert_ClientGrantType";
+                foreach (var item in client.AllowedGrantTypes)
+                {
+                    requestContennt.Request = item;
+                    await this._clientRepository.ExcuteNoQueryAsync(requestContennt);
+                }
+            }
+            else
+            {
+                throw new ArgumentNullException("ClientSecrets", "AllowedGrantTypes can not null or empty");
+            }
+
+            if (client.RedirectUris.IsNullOrEmpty())
+            {
+                requestContennt.SqlId = "Insert_ClientRedirectUri";
+                foreach (var item in client.RedirectUris)
+                {
+                    requestContennt.Request = item;
+                    await this._clientRepository.ExcuteNoQueryAsync(requestContennt);
+                }
+            }
+
+            if (client.PostLogoutRedirectUris.IsNullOrEmpty())
+            {
+                requestContennt.SqlId = "Insert_ClientPostLogoutRedirectUri";
+                foreach (var item in client.PostLogoutRedirectUris)
+                {
+                    requestContennt.Request = item;
+                    await this._clientRepository.ExcuteNoQueryAsync(requestContennt);
+                }
+            }
+
+            if (client.AllowedScopes.IsNullOrEmpty())
+            {
+                requestContennt.SqlId = "Insert_ClientScopes";
+                foreach (var item in client.AllowedScopes)
+                {
+                    requestContennt.Request = item;
+                    await this._clientRepository.ExcuteNoQueryAsync(requestContennt);
+                }
+            }
+
+            if (client.IdentityProviderRestrictions.IsNullOrEmpty())
+            {
+                requestContennt.SqlId = "Insert_ClientIdPRestriction";
+                foreach (var item in client.IdentityProviderRestrictions)
+                {
+                    requestContennt.Request = item;
+                    await this._clientRepository.ExcuteNoQueryAsync(requestContennt);
+                }
+            }
+
+            if (client.Claims.IsNullOrEmpty())
+            {
+                requestContennt.SqlId = "Insert_ClientClaim";
+                foreach (var item in client.Claims)
+                {
+                    requestContennt.Request = item;
+                    await this._clientRepository.ExcuteNoQueryAsync(requestContennt);
+                }
+            }
+
+            if (client.AllowedCorsOrigins.IsNullOrEmpty())
+            {
+                requestContennt.SqlId = "Insert_ClientCorsOrigin";
+                foreach (var item in client.AllowedCorsOrigins)
+                {
+                    requestContennt.Request = item;
+                    await this._clientRepository.ExcuteNoQueryAsync(requestContennt);
+                }
+            }
+            if (client.Properties.IsNullOrEmpty())
+            {
+                requestContennt.SqlId = "Insert_ClientProperty";
+                foreach (var item in client.AllowedCorsOrigins)
+                {
+                    requestContennt.Request = item;
+                    await this._clientRepository.ExcuteNoQueryAsync(requestContennt);
+                }
+            }
         }
 
         public void DeleteClient(string clientId)
@@ -170,19 +271,33 @@ namespace Ymb.IdentityServerApplication
 
         public Client QuerySingle(string clientId)
         {
-            throw new NotImplementedException();
+            var requestConetnt = new RequestContext()
+            {
+                Request = new { id = clientId },
+                SqlId = "Client_Query",
+                Scope = "Client"
+
+            };
+            var client = this._clientRepository.QuerySingle<Client>(requestConetnt);
+            return client;
         }
 
-        public Task<Client> QuerySingleAsync(string clientId)
+        public async Task<Client> QuerySingleAsync(string clientId)
         {
-            throw new NotImplementedException();
+            var requestConetnt = new RequestContext()
+            {
+                Request = new { id = clientId },
+                SqlId = "Client_Query",
+                Scope = "Client"
+            };
+            var client = await this._clientRepository.QuerySingleAsync<Client>(requestConetnt);
+            return client;
         }
 
         public void UpdateClient(Client client)
         {
             throw new NotImplementedException();
         }
-
         public Task UpdateClientAsync(Client client)
         {
             throw new NotImplementedException();

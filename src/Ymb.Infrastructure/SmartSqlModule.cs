@@ -10,18 +10,14 @@ using Microsoft.Extensions.Configuration;
 namespace Ymb.Infrastructure
 {
     public class SmartSqlModule : AbpModule
-    {
-        private readonly IConfiguration Configuration;
-        public SmartSqlModule(IConfiguration _configuration)
-        {
-            this.Configuration = _configuration;
-        }
+    {       
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
             var service = context.Services;
+            var serviceProvider = context.Services.BuildServiceProvider();
+            var configuration = serviceProvider.GetRequiredService<IConfiguration>();
+            service.AddSmartSql(builder=> builder.UseProperties(configuration));
            
-            service.AddSmartSql(builder=>builder.UseProperties(Configuration));
-            
         }
     }
 }

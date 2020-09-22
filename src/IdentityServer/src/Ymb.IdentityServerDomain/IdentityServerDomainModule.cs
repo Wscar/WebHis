@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Volo.Abp.Modularity;
+using Ymb.IdentityServerDomain;
 using Ymb.Infrastructure;
 namespace Ymb.IdentityServerDomain
 {
@@ -12,7 +13,8 @@ namespace Ymb.IdentityServerDomain
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
             var service = context.Services;
-            service.AddTransient<IClientRepository, ClientRepository>();
+            service.AddScoped<IClientRepository, ClientRepository>();
+            service.AddScoped<IApiResourceRepository, ApiResourceRepository>();
         }
     }
 }
