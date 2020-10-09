@@ -34,7 +34,7 @@ namespace YMB.IdentityServer.Mapper
                 .ForMember(dest => dest.Provider, opt => opt.MapFrom(src => src));
 
             CreateMap<Entities.ClientClaim,  Claim>(MemberList.None)
-                .ConstructUsing(src => new  Claim(src.Type, src.Value, ClaimValueTypes.String))
+                .ConstructUsing(src => new  Claim(src.Type, src.Value,ClaimValueTypes.String))
                 .ReverseMap();
             
             CreateMap<Entities.ClientScope, string>()

@@ -13,7 +13,7 @@ namespace Ymb.IdentityServerApplication
             CreateMap<ClientProperty, KeyValuePair<string, string>>()
                .ReverseMap();
                
-            List<string> a = new List<string>();
+         
           
             CreateMap<Client, IdentityServer4.Models.Client>()
                 .ForMember(dest => dest.ProtocolType, opt =>opt.Condition(srs => srs != null))
@@ -29,10 +29,10 @@ namespace Ymb.IdentityServerApplication
                 .ReverseMap()
                 .ForMember(dest => dest.Provider, opt => opt.MapFrom(src => src));
 
-            CreateMap<ClientClaim,  Claim>(MemberList.None)
-                .ConstructUsing(src => new  Claim(src.Type, src.Value, ClaimValueTypes.String))
+            CreateMap<ClientClaim, IdentityServer4.Models.ClientClaim>(MemberList.None)
+                .ConstructUsing(src =>new  IdentityServer4.Models.ClientClaim(src.Type, src.Value,ClaimValueTypes.String))
                 .ReverseMap();
-            
+
             CreateMap<ClientScope, string>()
                 .ConstructUsing(src => src.Scope)
                 .ReverseMap()

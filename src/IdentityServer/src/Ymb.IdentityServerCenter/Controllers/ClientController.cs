@@ -18,9 +18,10 @@ namespace Ymb.IdentityServerCenter.Controllers
             this._clientService = clientService;
         }
         [HttpGet]
-        public string Get()
+        public  async Task<IActionResult> Get()
         {
-            return "hello world";
+            var client = await this._clientService.QuerySingleAsync("1");
+            return Ok(client);
         }
     }
 }
