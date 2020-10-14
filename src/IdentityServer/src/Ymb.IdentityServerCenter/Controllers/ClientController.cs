@@ -20,6 +20,7 @@ namespace Ymb.IdentityServerCenter.Controllers
         [HttpGet]
         public  async Task<IActionResult> Get()
         {
+            var s = new List<string>();
             var client = await this._clientService.QuerySingleAsync("1");
             return Ok(client);
         }

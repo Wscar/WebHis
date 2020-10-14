@@ -176,32 +176,32 @@
       VALUES
       ( @RedirectUri, @ClientId )
     </Statement>
-    <Statement id="Insert_ClientPostLogoutRedirectUri">
+    <Statement Id="Insert_ClientPostLogoutRedirectUri">
       INSERT INTO hospital.ClientPostLogoutRedirectUris ( PostLogoutRedirectUri, ClientId )
       VALUES
       ( @PostLogoutRedirectUri, @ClientId )
     </Statement>
-    <Statement id="Insert_ClientScopes">
+    <Statement Id="Insert_ClientScopes">
       INSERT INTO hospital.ClientScopes ( Scope, ClientId )
       VALUES
       ( @Scope, @ClientId )
     </Statement>
-    <Statement id="Insert_ClientIdPRestriction">
+    <Statement Id="Insert_ClientIdPRestriction">
       INSERT INTO hospital.ClientIdPRestrictions ( Provider, ClientId )
       VALUES
       ( @Provider, ClientId )
     </Statement>
-    <Statement id="Insert_ClientClaim">
+    <Statement Id="Insert_ClientClaim">
       INSERT INTO hospital.ClientClaims ( Type, `Value`, ClientId )
       VALUES
       ( @Type, @VALUE, @ClientId )
     </Statement>
-    <Statement id="Insert_ClientProperty">
+    <Statement Id="Insert_ClientProperty">
       INSERT INTO hospital.ClientProperties ( `Key`, `Value`, ClientId )
       VALUES
       ( @KEY, @VALUE, ClientId )
     </Statement>
-    <Statement id="Insert_ClientCorsOrigin">
+    <Statement Id="Insert_ClientCorsOrigin">
       INSERT INTO hospital.ClientCorsOrigins ( Origin, ClientId )
       VALUES
       ( @ClientId, @ClientId )
