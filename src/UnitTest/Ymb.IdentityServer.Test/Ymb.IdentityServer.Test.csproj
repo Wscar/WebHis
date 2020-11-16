@@ -26,9 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\IdentityServer\src\Ymb.IdentityServerApplication\Ymb.IdentityServerApplication.csproj" />
-    <ProjectReference Include="..\..\IdentityServer\src\Ymb.IdentityServerCenter\Ymb.IdentityServerCenter.csproj" />
-    <ProjectReference Include="..\..\IdentityServer\src\Ymb.IdentityServerDomain\Ymb.IdentityServerDomain.csproj" />
     <ProjectReference Include="..\..\Ymb.Infrastructure\Ymb.Infrastructure.csproj" />
   </ItemGroup>
 

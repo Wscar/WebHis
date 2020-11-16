@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ymb.IdentityServerDomain\Ymb.IdentityServerDomain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Dtos\" />
     <Folder Include="Mapper\" />
   </ItemGroup>
