@@ -35,5 +35,6 @@ namespace Ymb.IdentityServer4.Admin.EF
         public DbSet<ApiScopeProperty> ApiScopeProperties { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public DbSet<IdentityResourceClaim> IdentityResourceClaims { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public DbSet<IdentityResourceProperty> IdentityResourceProperties { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public DbSet<ClientPostLogoutRedirectUri> ClientPostLogoutRedirectUris { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

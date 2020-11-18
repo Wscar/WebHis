@@ -34,19 +34,19 @@ namespace Ymb.IdentityServer4.Admin.EF.Repositories.Interface
         Task<List<ApiResourceScope>> GetApiResourceScopes(int? apiResourceId, string search = "", int pageIndex = 1, int count = 20);
         #endregion
         #region ApiResourceClaim 增删查
-        Task<int> AddApiResourceClaim(ApiResourceClaim scope);
-        Task<int> DeleteApiResourceClaim(ApiResourceClaim scope);
+        Task<int> AddApiResourceClaim(ApiResourceClaim claim);
+        Task<int> DeleteApiResourceClaim(ApiResourceClaim claim);
 
-        Task<ApiResourceClaim> ApiResourceClaim(int apiResourceId);
+        Task<ApiResourceClaim> GetApiResourceClaim(int apiResourceId);
 
         Task<List<ApiResourceClaim>> GetApiResourceClaims(int? apiResourceId);
         Task<List<ApiResourceClaim>> GetApiResourceClaims(int? apiResourceId, string search = "", int pageIndex = 1, int count = 20);
         #endregion
         #region ApiResourceProperty 增删查
-        Task<int> AddApiResourceProperties(ApiResourceProperty scope);
-        Task<int> DeleteApiResourceProperties(ApiResourceProperty scope);
+        Task<int> AddApiResourceProperties(ApiResourceProperty property);
+        Task<int> DeleteApiResourceProperties(ApiResourceProperty property);
 
-        Task<ApiResourceProperty> ApiApiResourceProperty(int apiResourceId);
+        Task<ApiResourceProperty> GetApiApiResourceProperty(int apiResourceId);
 
         Task<List<ApiResourceProperty>> GetApiResourceProperties(int? apiResourceId);
         Task<List<ApiResourceProperty>> GetApiResourceProperties(int? apiResourceId, string search = "", int pageIndex = 1, int count = 20);
