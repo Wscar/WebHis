@@ -1,6 +1,6 @@
 ﻿using IdentityModel;
 using IdentityServer4.Models;
-using IdentityServer4.Quickstart.UI;
+using IdentityServerHost.Quickstart.UI;
 using IdentityServer4.Services;
 using System;
 using System.Collections.Generic;
@@ -19,9 +19,10 @@ namespace YMB.IdentityServer.Service
             var claims = new List<Claim>
             {
                 new Claim("Address",user.Claims.SingleOrDefault(x=>x.Type=="address").Value),
-                new Claim("user_type","admin"),
+                new Claim("user_type","admin"),              
                 new Claim(JwtClaimTypes.Role,"SkorubaIdentityAdminAdministrator"),
             };
+          
             context.IssuedClaims.AddRange(claims);
             return Task.CompletedTask;
         }

@@ -33,6 +33,28 @@ namespace YMB.IdentityServer
                        AllowOfflineAccess=true,
                        AlwaysIncludeUserClaimsInIdToken=true
                 },
+                new Client
+                {
+                    ClientId="Ymb_IdentityServer4_Admin",
+                    ClientName="Ymb_IdentityServer4_Admin",
+                    ClientSecrets=new List<Secret>{new Secret("Ymb_IdentityServer4_Admin_Secret".Sha256())},
+                    AllowedGrantTypes=GrantTypes.Code,
+                    RedirectUris={ "https://localhost:44303/signin-oidc" },
+                    RequireConsent=false,
+                    //RequirePkce = true,
+                   // PostLogoutRedirectUris = { "https://localhost:5002/signout-callback-oidc" },
+                   PostLogoutRedirectUris={ "https://localhost:44303/signout-callback-oidc" },
+                        AllowedScopes = new List<string>
+                        {
+                            IdentityServerConstants.StandardScopes.OpenId,
+                            IdentityServerConstants.StandardScopes.Profile,
+                            IdentityServerConstants.StandardScopes.Email,
+                          
+                            "api1"
+                        },
+                       AllowOfflineAccess=true,
+                       AlwaysIncludeUserClaimsInIdToken=true
+                },
                 // vue客户端
                 new Client
                 {
@@ -66,6 +88,7 @@ namespace YMB.IdentityServer
                 {
                     new IdentityResources.OpenId(),
                     new IdentityResources.Profile(),
+                    new IdentityResources.Email(),
                 };
         }
         public static IEnumerable<ApiResource> GetApiResources()
@@ -83,7 +106,8 @@ namespace YMB.IdentityServer
                 {
                     SubjectId="1",
                     Username="yemobai",
-                    Password="123"
+                    Password="123"                
+                    
                 }
             };
         }

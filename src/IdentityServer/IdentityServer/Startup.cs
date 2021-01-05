@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-using IdentityServer4.Quickstart.UI;
+using IdentityServerHost.Quickstart.UI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,7 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using YMB.IdentityServer.Service;
-using SmartSql;
+using Microsoft.EntityFrameworkCore;
 
 namespace YMB.IdentityServer
 {
@@ -32,19 +32,18 @@ namespace YMB.IdentityServer
             services.AddControllersWithViews();
             IDictionary<string,string> connect = new Dictionary<string, string>();
             connect.Add("ConnectionString", Configuration.GetConnectionString("Mysql"));
-            services.AddSmartSql(builder=> builder.UseProperties(connect));        
+                 
             string migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
             services.AddIdentityServer(o =>
             {
-            }).AddInMemoryClients(Config.GetClients())
-               .AddInMemoryApiResources(Config.GetApiResources())
-
-               .AddInMemoryIdentityResources(Config.GetIdentityResources())
+            }).AddConfigurationStore(x=>x.ConfigureDbContext=b=>b.UseMySql(Configuration.GetConnectionString("Mysql")))
+               .AddOperationalStore(x => x.ConfigureDbContext = b => b.UseMySql(Configuration.GetConnectionString("Mysql")))
+             
                .AddTestUsers(TestUsers.Users)
                .AddDeveloperSigningCredential()
 
             .AddProfileService<UserProfileService>();
-            services.AddRespositry();
+           
             services.AddAuthentication();
 
         }

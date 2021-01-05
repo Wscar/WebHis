@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using YMB.IdentityServer.Mapper;
 
 namespace YMB.IdentityServer.Controllers
 {
@@ -19,7 +18,7 @@ namespace YMB.IdentityServer.Controllers
         }
         public string Get()
         {
-            var client = ClientMapper.ToModel(new Entities.Client());
+          
             return "hello";
 
         }

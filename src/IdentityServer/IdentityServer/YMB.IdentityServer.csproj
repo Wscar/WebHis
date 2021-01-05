@@ -14,15 +14,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="9.0.0" />
-    <PackageReference Include="IdentityServer4" Version="3.1.2" />
-    <PackageReference Include="SmartSql" Version="4.1.53" />
-    <PackageReference Include="SmartSql.AOP" Version="4.1.53" />
-    <PackageReference Include="SmartSql.DIExtension" Version="4.1.53" />
-    <PackageReference Include="SmartSql.DyRepository" Version="4.1.53" />
-    <PackageReference Include="SmartSql.Schema" Version="4.1.30" />
-    <PackageReference Include="SmartSql.TypeHandler" Version="4.1.53" />
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="IdentityServer4" Version="4.1.1" />
+    <PackageReference Include="IdentityServer4.EntityFramework" Version="4.1.1" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.4" />
     <PackageReference Include="System.Security.Principal.Windows" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+    <Folder Include="Mapper\" />
   </ItemGroup>
 
 
