@@ -49,9 +49,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Ymb.IdntityServer4.Admin.EntityFramework.MySql\Ymb.IdntityServer4.Admin.EntityFramework.MySql.csproj" />
-        <ProjectReference Include="..\Ymb.IdntityServer4.Admin.EntityFramework.Shared\Ymb.IdntityServer4.Admin.EntityFramework.Shared.csproj" />
-        <ProjectReference Include="..\Ymb.IdntityServer4.Shared\Ymb.IdntityServer4.Shared.csproj" />
+        <ProjectReference Include="..\Ymb.IdntityServer4.Admin.EntityFramework.MySql\Ymb.IdentityServer4.Admin.EntityFramework.MySql.csproj" />
+        <ProjectReference Include="..\Ymb.IdntityServer4.Admin.EntityFramework.Shared\Ymb.IdentityServer4.Admin.EntityFramework.Shared.csproj" />
+        <ProjectReference Include="..\Ymb.IdntityServer4.Shared\Ymb.IdentityServer4.Shared.csproj" />
     </ItemGroup>
 
     <ItemGroup>

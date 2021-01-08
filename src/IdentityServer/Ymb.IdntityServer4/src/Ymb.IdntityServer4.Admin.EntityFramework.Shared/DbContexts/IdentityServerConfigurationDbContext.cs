@@ -2,11 +2,11 @@
 using IdentityServer4.EntityFramework.Entities;
 using IdentityServer4.EntityFramework.Options;
 using Microsoft.EntityFrameworkCore;
-using Skoruba.IdentityServer4.Admin.EntityFramework.Interfaces;
 
-namespace Ymb.IdntityServer4.Admin.EntityFramework.Shared.DbContexts
+
+namespace Ymb.IdentityServer4.Admin.EntityFramework.Shared.DbContexts
 {
-    public class IdentityServerConfigurationDbContext : ConfigurationDbContext<IdentityServerConfigurationDbContext>, IAdminConfigurationDbContext
+    public class IdentityServerConfigurationDbContext : ConfigurationDbContext<IdentityServerConfigurationDbContext>
     {
         public IdentityServerConfigurationDbContext(DbContextOptions<IdentityServerConfigurationDbContext> options, ConfigurationStoreOptions storeOptions)
             : base(options, storeOptions)
@@ -43,7 +43,7 @@ namespace Ymb.IdntityServer4.Admin.EntityFramework.Shared.DbContexts
 
         public DbSet<ClientProperty> ClientProperties { get; set; }
       
-        DbSet<IdentityResourceClaim> IAdminConfigurationDbContext.IdentityClaims { get; set; }
+        public DbSet<IdentityResourceClaim> IdentityClaims { get; set; }
     }
 }
 

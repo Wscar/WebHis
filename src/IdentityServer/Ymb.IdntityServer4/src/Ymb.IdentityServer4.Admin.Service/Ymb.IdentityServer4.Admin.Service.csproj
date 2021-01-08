@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ymb.IdntityServer4.Admin.EntityFramework.Shared\Ymb.IdentityServer4.Admin.EntityFramework.Shared.csproj" />
+  </ItemGroup>
+
+</Project>
