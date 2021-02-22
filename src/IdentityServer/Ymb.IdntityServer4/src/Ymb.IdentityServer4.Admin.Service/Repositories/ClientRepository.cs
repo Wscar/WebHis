@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Ymb.IdentityServer4.Admin.EntityFramework.Shared.DbContexts;
 
-namespace Ymb.IdentityServer4.Admin.Service.Repostotories
+namespace Ymb.IdentityServer4.Admin.Service.Repositories
 {
     public class ClientRepository : IClientRepository
     {

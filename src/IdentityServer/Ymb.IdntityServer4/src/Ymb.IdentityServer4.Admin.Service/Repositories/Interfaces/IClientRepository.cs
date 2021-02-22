@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ymb.IdentityServer4.Admin.Service.Repostotories
+namespace Ymb.IdentityServer4.Admin.Service.Repositories
 {
     public interface IClientRepository
     {
